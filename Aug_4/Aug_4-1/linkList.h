@@ -20,4 +20,5 @@ public:
 	void search(int);
 	void reverse();
 	void display();
+	~cLinkList();
 };

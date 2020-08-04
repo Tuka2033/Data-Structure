@@ -21,6 +21,24 @@ cLinkList s;
 			s.creat_list(data1);
 			break;
 		case 2:
+			/*int ch;
+			cout << "\n 1.Add beg.\n2.Add Specified position.\n3.Add last.\n";
+			cout << "\nEnter ur choice::";
+			cin >> ch;
+			switch (ch)
+			{
+			case 1:
+				cout << "Enter data  :\n";
+				cin >> data1;
+				s.add_beg(data1);
+				break;
+			case 2:
+				cout << "Enter data  :\n";
+				cin >> data1;
+				cout << "Enter position of element:\n";
+				cin >> pos;
+
+			}*/
 			cout << "Enter data  :\n";
 			cin >> data1;
 			cout << "Enter position of element:\n";

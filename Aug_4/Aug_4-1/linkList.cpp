@@ -70,6 +70,7 @@ void  cLinkList::delete_beg()
 		head = head->next;
 		cout << "\nDeleted Element is:" << temp->data << endl;
 		delete(temp);
+		cnt--;
 	}
 }
 void  cLinkList::delete_mid(int pos)
@@ -83,6 +84,7 @@ void  cLinkList::delete_mid(int pos)
 	cout << "\nDeleted Element is: " << ptr->data << endl;
 	temp->next = ptr->next;
 	delete(ptr);
+	cnt--;
 }
 void  cLinkList::delete_end()
 {
@@ -101,6 +103,7 @@ void  cLinkList::delete_end()
 		cout << "\nDeleted Element is:" << ptr->data << endl;
 		temp->next = NULL;
 		delete(ptr);
+		cnt--;
 	}
 }
 void  cLinkList::display()
@@ -123,11 +126,11 @@ void  cLinkList::display()
 }
 void  cLinkList::insert(int data1, int pos)
 {
-	if (pos > cnt)
+	if (pos >cnt)
 	{
 		add_end(data1);
 	}
-	else if (pos == 1)
+	else if (pos <= 1)
 	{
 		add_beg(data1);
 	}
@@ -138,11 +141,22 @@ void  cLinkList::insert(int data1, int pos)
 }
 void  cLinkList::delete_ele(int pos)
 {
+	if (cnt == 0)
+	{
+		cout << "\nList is empty.............!!!!!!!!!!!!!\n";
+	}
 	if (pos > cnt)
 	{
-		delete_end();
+		if (pos == cnt)
+		{
+			delete_end();
+		}
+		else
+		{
+			cout << "\n Please Enter Delete position in between 1 to " << cnt;
+		}
 	}
-	else if (pos == 1)
+	else if (pos <= 1)
 	{
 		delete_beg();
 	}
@@ -200,5 +214,14 @@ void cLinkList::reverse()
 			cur = head;
 		}
 		head = prev;
+	}
+}
+cLinkList::~cLinkList()
+{
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->next;
+		delete temp;
 	}
 }

@@ -6,11 +6,7 @@ clinkList::clinkList()
 	temp = NULL;
 	cnt = 0;
 }
-//clinkList::clinkList(cEmployee *e)
-//{
-//	head = e;
-//	
-//}
+
 void clinkList::creat_list(cEmployee e1)
 {
 	Node* newnode = new Node();
@@ -87,6 +83,7 @@ void clinkList::delete_beg()
 		head = head->next;
 		cout << "\nDeleted Element is:" << temp->e;
 		delete(temp);
+		cnt--;
 	}
 }
 void clinkList::delete_mid(int pos)
@@ -100,6 +97,7 @@ void clinkList::delete_mid(int pos)
 	cout << "\nDeleted Element is: " << ptr->e;
 	temp->next = ptr->next;
 	delete(ptr);
+	cnt--;
 }
 void clinkList::delete_end()
 {
@@ -118,13 +116,26 @@ void clinkList::delete_end()
 		cout << "\nDeleted Element is:" << ptr->e;
 		temp->next = NULL;
 		delete(ptr);
+		cnt--;
 	}
 }
 void clinkList::delete_ele(int pos)
 {
+	if (cnt == 0)
+	{
+		cout << "\nList is Empty...........!!!!!!!!!!\n";
+		return ;
+	}
 	if (pos > cnt)
 	{
-		delete_end();
+		if (pos == cnt)
+		{
+			delete_end();
+		}
+		else
+		{
+			cout << "\n Please Enter Delete position in between 1 to " << cnt;
+		}
 	}
 	else if (pos == 1)
 	{
@@ -148,3 +159,12 @@ void clinkList::display()
 		cout << "\n###########################################################\n";
 
 	}
+clinkList::~clinkList()
+{
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->next;
+		delete temp;
+   }
+}

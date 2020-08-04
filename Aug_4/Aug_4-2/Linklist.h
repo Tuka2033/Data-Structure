@@ -6,7 +6,6 @@ class clinkList
 	int cnt;
 public:
 	clinkList();
-	//clinkList(cEmployee*);
 	void creat_list(cEmployee);
 	void add_beg(cEmployee);
 	void add_mid(cEmployee, int);
@@ -16,9 +15,6 @@ public:
 	void delete_mid(int);
 	void delete_end();
 	void delete_ele(int);
-	void sort();
-	void display();
-	/*void search(int);
-	void reverse();*/
-	
+	void display();	
+	~clinkList();
 };
