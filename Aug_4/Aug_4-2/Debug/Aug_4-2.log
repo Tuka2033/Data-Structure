@@ -1,5 +1,2 @@
 ﻿  Linklist.cpp
-  main.cpp
-D:\C-DAC Assignment\DS\Aug_4\Aug_4-2\main.cpp(8,6): warning C4101: 'key': unreferenced local variable
-  Generating Code...
   Aug_4-2.vcxproj -> D:\C-DAC Assignment\DS\Aug_4\Debug\Aug_4-2.exe

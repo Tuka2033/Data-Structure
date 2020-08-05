@@ -3,12 +3,12 @@
 clinkList::clinkList()
 {
 	head = NULL;
-	temp = NULL;
 	cnt = 0;
 }
 
 void clinkList::creat_list(cEmployee e1)
 {
+	Node* temp;
 	Node* newnode = new Node();
 	newnode->e = e1;
 	if (head == NULL)
@@ -17,21 +17,26 @@ void clinkList::creat_list(cEmployee e1)
 	}
 	else
 	{
+		temp = head;
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+		}
 		temp->next = newnode;
 	}
-	temp = newnode;
 	cnt++;
 }
 void clinkList::add_beg(cEmployee e1)
 {
-    Node* n1 = new Node();
-	n1->e = e1;
-	n1->next = head;
-	head = n1;
+    Node* newnode = new Node();
+	newnode->e = e1;
+	newnode->next = head;
+	head = newnode;
 	cnt++;
 }
 void clinkList::add_mid(cEmployee e1, int pos)
 {
+	Node* temp;
 	Node* n1 = new Node();
 	n1->e = e1;
 	temp = head;
@@ -45,6 +50,7 @@ void clinkList::add_mid(cEmployee e1, int pos)
 }
 void clinkList::add_end(cEmployee e1)
 {
+	Node* temp;
 	Node* n1 = new Node();
 	n1->e = e1;
 	n1->next = NULL;
@@ -73,6 +79,7 @@ void clinkList::insert(cEmployee e, int pos)
 }
 void clinkList::delete_beg()
 {
+	Node* temp;
 	if (head == NULL)
 	{
 		cout << "List is empty" << endl;
@@ -82,12 +89,13 @@ void clinkList::delete_beg()
 		temp = head;
 		head = head->next;
 		cout << "\nDeleted Element is:" << temp->e;
-		delete(temp);
+		delete temp;
 		cnt--;
 	}
 }
 void clinkList::delete_mid(int pos)
 {
+	Node* temp=head;
 	Node* ptr = head;
 	for (int i = 1; i < pos; i++)
 	{
@@ -101,6 +109,7 @@ void clinkList::delete_mid(int pos)
 }
 void clinkList::delete_end()
 {
+	Node* temp;
 	temp = head;
 	if (head == NULL)
 	{
@@ -149,6 +158,7 @@ void clinkList::delete_ele(int pos)
 }
 void clinkList::display()
 	{
+	    Node* temp;
 		temp = head;
 		cout << "\n****************** LINKED LIST :**********************\n";
 		while (temp != NULL)
@@ -161,10 +171,11 @@ void clinkList::display()
 	}
 clinkList::~clinkList()
 {
+	Node* temp;
 	while (head != NULL)
 	{
 		temp = head;
 		head = head->next;
 		delete temp;
-   }
+    }
 }

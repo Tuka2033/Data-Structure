@@ -2,7 +2,6 @@
 cLinkList::cLinkList()
 {
 	head = NULL;
-	temp = NULL;
 	cnt = 0;
 }
 cLinkList::cLinkList(node* n)
@@ -11,6 +10,7 @@ cLinkList::cLinkList(node* n)
 }
 void  cLinkList::creat_list(int data1)
 {
+	node* temp;
 	node* newnode = new node();
 	newnode->data = data1;
 	if (head == 0)
@@ -19,9 +19,13 @@ void  cLinkList::creat_list(int data1)
 	}
 	else
 	{
+		temp = head;
+		while (temp->next != NULL)
+		{
+			temp=temp->next;
+		}
 		temp->next = newnode;
 	}
-	temp = newnode;
 	cnt++;
 }
 void  cLinkList::add_beg(int data1)
@@ -34,6 +38,7 @@ void  cLinkList::add_beg(int data1)
 }
 void  cLinkList::add_mid(int data1, int pos)
 {
+	node* temp;
 	node* n1 = new node();
 	n1->data = data1;
 	temp = head;
@@ -47,6 +52,7 @@ void  cLinkList::add_mid(int data1, int pos)
 }
 void  cLinkList::add_end(int data1)
 {
+	node* temp;
 	node* n1 = new node();
 	n1->data = data1;
 	n1->next = NULL;
@@ -60,6 +66,7 @@ void  cLinkList::add_end(int data1)
 }
 void  cLinkList::delete_beg()
 {
+	node* temp;
 	if (head == NULL)
 	{
 		cout << "List is empty" << endl;
@@ -75,6 +82,7 @@ void  cLinkList::delete_beg()
 }
 void  cLinkList::delete_mid(int pos)
 {
+	node* temp=head;
 	node* ptr = head;
 	for (int i = 1; i < pos; i++)
 	{
@@ -88,6 +96,7 @@ void  cLinkList::delete_mid(int pos)
 }
 void  cLinkList::delete_end()
 {
+	node* temp;
 	temp = head;
 	if (head == NULL)
 	{
@@ -108,6 +117,7 @@ void  cLinkList::delete_end()
 }
 void  cLinkList::display()
 {
+	node* temp;
 	temp = head;
 	while (temp != NULL)
 	{
@@ -144,8 +154,9 @@ void  cLinkList::delete_ele(int pos)
 	if (cnt == 0)
 	{
 		cout << "\nList is empty.............!!!!!!!!!!!!!\n";
+		return;
 	}
-	if (pos > cnt)
+   if (pos > cnt)
 	{
 		if (pos == cnt)
 		{
@@ -167,6 +178,7 @@ void  cLinkList::delete_ele(int pos)
 }
 void  cLinkList::search(int key)
 {
+	node* temp;
 	temp = head;
 	while (temp->next != NULL)
 	{
@@ -181,6 +193,7 @@ void  cLinkList::search(int key)
 }
 void  cLinkList::sort()
 {
+	node* temp;
 	temp = head;
 	node* i, * j;
 	int t;
@@ -218,6 +231,7 @@ void cLinkList::reverse()
 }
 cLinkList::~cLinkList()
 {
+	node* temp;
 	while (head != NULL)
 	{
 		temp = head;

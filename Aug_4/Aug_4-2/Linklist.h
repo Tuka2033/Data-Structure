@@ -2,7 +2,6 @@
 class clinkList
 {
 	Node* head;
-	Node* temp;
 	int cnt;
 public:
 	clinkList();
