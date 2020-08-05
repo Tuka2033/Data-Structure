@@ -14,4 +14,17 @@ public:
 	void deleteMid(int);
 	void deletelast();
 	void Display();
+	void reverse();
+	friend ostream& operator<<(ostream& out, clinkList& l)
+	{
+		node<T>* temp;
+		temp =l.head;
+		while (temp != NULL)
+		{
+			out << "[" << temp->getData() << "]-->";
+			temp = temp->getNext();
+		}
+		return out;
+	}
+	~clinkList();
 };

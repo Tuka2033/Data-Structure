@@ -36,7 +36,7 @@ void  clinkList<T>::addMid(T val, int pos)
 	else
 	{
 		temp = head;
-		for (int i = 1; i < pos-1; i++)
+		for (int i = 1; i < pos - 1; i++)
 		{
 			temp = temp->getNext();
 		}
@@ -67,7 +67,7 @@ void  clinkList<T>::deletefirst()
 template<class T>
 void  clinkList<T>::deleteMid(int pos)
 {
-	node<T>* temp,*ptr;
+	node<T>* temp, * ptr;
 	temp = head;
 	ptr = head;
 	for (int i = 1; i < pos; i++)
@@ -81,7 +81,7 @@ void  clinkList<T>::deleteMid(int pos)
 template<class T>
 void  clinkList<T>::deletelast()
 {
-	node<T>* temp,*ptr;
+	node<T>* temp, * ptr;
 	temp = head;
 	while (temp->getNext()->getNext() != NULL)
 	{
@@ -96,10 +96,42 @@ void  clinkList<T>::Display()
 {
 	node<T>* temp;
 	temp = head;
-	while (temp!= NULL)
+	while (temp != NULL)
 	{
 		cout << "[" << temp->getData() << "]-->";
 		temp = temp->getNext();
 	}
 	cout << endl;
+}
+template <class T>
+void clinkList<T>::reverse()
+{
+	node<T>* prev;
+	node<T>*cur;
+	if (head != NULL)
+	{
+		prev = head;
+		cur = head->getNext();
+		head = head->getNext();
+		prev->setNext(NULL);
+		while (head != NULL)
+		{
+			head = head->getNext();
+			cur->setNext(prev);
+			prev = cur;
+			cur = head;
+		}
+		head = prev;
+	}
+}
+template <class T>
+clinkList<T>::~clinkList()
+{
+	node<T>* temp;
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->getNext();
+		delete temp;
+	}
 }
