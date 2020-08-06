@@ -1,0 +1,29 @@
+#include"DoublyCircular.h"
+int main()
+{
+	Doublylinklist l1;
+	l1.CreateList(10);
+	l1.CreateList(20);
+	l1.CreateList(30);
+	l1.CreateList(40);
+	l1.CreateList(50);
+	l1.CreateList(60);
+	l1.ForwardDisplay();
+	l1.ReversedDisplay();
+	l1.AddMid(8,2);
+	l1.AddMid(5,3);
+	l1.AddMid(2,4);
+	l1.ReversedDisplay();
+	l1.ForwardDisplay();
+	l1.AddBegin(8);
+	l1.AddBegin(5);
+	l1.AddBegin(2);
+	l1.ReversedDisplay();
+	l1.ForwardDisplay();
+	l1.AddEnd(62);
+	l1.AddEnd(65);
+	l1.AddEnd(68);
+	l1.AddEnd(70);
+	l1.ForwardDisplay();
+	l1.ReversedDisplay();
+}
