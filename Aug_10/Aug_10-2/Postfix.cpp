@@ -1,23 +1,8 @@
 #include<iostream>
+#include<stack>
 using namespace std;
-#define max 20
-char stack[max];
-int top = -1;
+stack<char> s;
 
-void push(char symbol)
-{
-	stack[++top] = symbol;
-}
-char pop()
-{
-	char c;
-	c = stack[top--];
-	return c;
-}
-char peek()
-{
-	return stack[top];
-}
 int isoperand(char symbol)
 {
 	if ((symbol >= 'A' && symbol <= 'Z') || (symbol >= 'a' && symbol <= 'z'))
@@ -83,10 +68,14 @@ void reverse(char infix[])
 		}
 	}
 }
+void infixTopostfix(char infix, char postfix)
+{
+
+}
 int main()
 {
-	char infix[100];
-	char postfix[100];
+	char infix[15];
+	char postfix[15];
 	char temp, symbol;
 	int i, j;
 	std::cout << "\nEnter an infix expression::";
@@ -96,7 +85,7 @@ int main()
 	i = j = 0;
 
 	//step-1
-	push('(');
+	s.push('(');
 
 	//step-2
 	while (infix[i] != '\0')
@@ -105,7 +94,11 @@ int main()
 
 
 		//step-3
-		if (isoperand(symbol))
+		if (isdigit(infix[i]))
+		{
+			postfix[j++] = infix[i];
+		}
+		else if (isoperand(symbol))
 		{
 			postfix[j] = symbol;
 			j++;
@@ -114,43 +107,43 @@ int main()
 		//step-4
 		else if (symbol == '(')
 		{
-			push(symbol);
+			s.push(symbol);
 		}
 
 		//step-5
 		else if (isoperator(symbol))
 		{
 			//step-5(a)
-			while (isprecedence(stack[top]) >= isprecedence(symbol))
+			while (isprecedence(s.top()) >= isprecedence(symbol))
 			{
-				temp = pop();
+				temp = s.top();   s.pop();
 				postfix[j] = temp;
 				j++;
 			}
 			//step-5(b)
-			push(symbol);
+			s.push(symbol);
 		}
 
 		//step-6
 		else if (symbol == ')')
 		{
 			//step-6(a)
-			while (stack[top] != '(')
+			while (s.top() != '(')
 			{
-				temp = pop();
+				temp = s.top();   s.pop();
 				postfix[j] = temp;
 				j++;
 			}
 			//step-6(b)
-			temp = pop();
+			temp = s.top(); s.pop();
 		}
 		i++;
 	}
 
 	//remove leftover of elemet 
-	while (stack[top] != '(')
+	while (s.top() != '(')
 	{
-		temp = pop();
+		temp = s.top(); s.pop();
 		postfix[j] = temp;
 		j++;
 	}
