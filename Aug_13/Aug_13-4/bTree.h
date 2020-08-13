@@ -5,8 +5,8 @@ class bTree
 	char ch;
 public:
 	bTree();
-	node* createNode(int);
-	void CreateTree(int);
+	node* createNode(char);
+	void CreateTree(char);
 	void preorder(node* temp);
 	void postorder(node* temp);
 	void Inorder(node* temp);

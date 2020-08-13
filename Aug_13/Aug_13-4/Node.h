@@ -2,11 +2,11 @@
 using namespace std;
 class node
 {
-	int data;
+	char data;
 	node* left;
 	node* right;
 public:
 	node();
-	node(int);
+	node(char);
 	friend class bTree;
 };

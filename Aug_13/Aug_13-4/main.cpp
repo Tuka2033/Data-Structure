@@ -2,7 +2,7 @@
 int main()
 {
 	bTree b;
-	int ele;
+	char ele;
 	for (int i = 0; i < 15; i++)
 	{
 		cout << "\nEnter inserting element::";

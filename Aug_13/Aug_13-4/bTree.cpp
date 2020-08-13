@@ -4,12 +4,12 @@ bTree::bTree()
 	root = NULL;
 	ch =0;
 }
-node* bTree::createNode(int val)
+node* bTree::createNode(char val)
 {
 	node* newnode = new node(val);
 	return newnode;
 }
-void bTree::CreateTree(int val)
+void bTree::CreateTree(char val)
 {
 	node* newnode = createNode(val);
 	node* temp;

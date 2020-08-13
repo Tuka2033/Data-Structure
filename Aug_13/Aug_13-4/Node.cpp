@@ -6,7 +6,7 @@ node::node()
 	left = NULL;
 	right = NULL;
 }
-node::node(int data)
+node::node(char data)
 {
 	this->data = data;
 	left = NULL;
