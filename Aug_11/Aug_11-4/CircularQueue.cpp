@@ -67,7 +67,7 @@ public:
 	void display()
 	{
 
-		int i;
+	int i;
 		if (front <= rear)
 		{
 			for (i = front; i <= rear; i++)
@@ -77,11 +77,11 @@ public:
 		}
 		else if (front > rear)
 		{
-			for (i = 0; i <= rear; i++)
+			for (i = front; i <= size - 1; i++)
 			{
 				cout << arr[i] << "  ";
 			}
-			for (i = front; i <= size - 1; i++)
+			for (i = 0; i <= rear; i++)
 			{
 				cout << arr[i] << "  ";
 			}
@@ -102,9 +102,9 @@ int main()
 	q.dequeue();
 	q.dequeue();
 	q.dequeue();
-	q.enqueue(40);
-	q.enqueue(50);
-	q.enqueue(60);
+	q.enqueue(400);
+	q.enqueue(500);
+	q.enqueue(600);
 	q.display();
 	q.dequeue();
 	q.display();
