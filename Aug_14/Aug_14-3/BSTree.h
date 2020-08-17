@@ -13,5 +13,7 @@ public:
 	node* binarySearch(int);
 	void delAll(node*);
 	void delAll();
+	void del(int);
+	node*binsearch(int, node**);
 	~bsTree();
 };

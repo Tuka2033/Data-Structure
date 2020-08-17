@@ -157,6 +157,65 @@ void bsTree::delAll(node* trev)
 	delete trev;
 }
 
+node* bsTree::binsearch(int key, node** pparent) {
+	node* trav = root;
+	*pparent = NULL;
+	while (trav != NULL) {
+		if (key == trav->data)
+			return trav;
+		*pparent = trav;
+		if (key < trav->data)
+			trav = trav->left;
+		else
+			trav = trav->right;
+	}
+	*pparent = NULL;
+	return NULL;
+}
+
+void bsTree::del(int val) {
+	node* temp, * parent, * pred;
+	// find the node with its parent
+	temp = binsearch(val, &parent);
+	// if node is not found, return.
+	if (temp == NULL)
+		return;
+	// if node has both child
+	if (temp->left != NULL && temp->right != NULL) {
+		// find its pred with pred's parent
+		parent = temp;
+		pred = temp->left;
+		while (pred->right != NULL) {
+			parent = pred;
+			pred = pred->right;
+		}
+		// replace temp's data with pred's data
+		temp->data = pred->data;
+		// consider pred node to be deleted
+		temp = pred;
+	}
+	// if node do not have right child
+	if (temp->right == NULL) {
+		if (temp == root)
+			root = temp->left;
+		else if (temp == parent->left)
+			parent->left = temp->left;
+		else
+			parent->right = temp->left;
+		delete temp;
+	}
+	// if node do not have left child
+	else if (temp->left == NULL) {
+		if (temp == root)
+			root = temp->right;
+		else if (temp == parent->left)
+			parent->left = temp->right;
+		else
+			parent->right = temp->right;
+		delete temp;
+	}
+}
+
 //wrapper function to call dalAll recursive function
 void bsTree::delAll()
 {
