@@ -29,7 +29,7 @@ public:
 		}
 	}
 	void Display() {
-		for (unsigned i = 0; i < edges.size(); i++) {
+		for (int i = 0; i < edges.size(); i++) {
 			cout << i << " = ";
 			list<int>::iterator itr = edges[i].begin();
 			while (itr != edges[i].end()) {
