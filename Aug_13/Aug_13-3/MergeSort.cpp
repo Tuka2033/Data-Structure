@@ -4,7 +4,7 @@ using namespace std;
 void mergeSort(int* arr,int *temp,int left, int mid,int right)
 {
 	int  left_end, numberOfelement, temp_pos;
-	left_end = mid - 1;
+	left_end = mid-1 ;
 	temp_pos =left;
 	numberOfelement = right - left + 1;
 	
@@ -42,22 +42,21 @@ void mergeSort(int* arr,int *temp,int left, int mid,int right)
 	}
 	
 	//copy element temp array to original array
-	for (int i = 0; i <= numberOfelement; i++)
+	for (int i = 0; i < numberOfelement; i++)
 	{
-		arr[right] = temp[right];
-		right--;
+			arr[right] = temp[right];
+			right--;
 	}
 }
 void m_sort(int* arr, int *temp, int left, int right)
 {
 	int mid;
-	
 	if (right > left)
 	{
 		mid = (right + left) / 2;
 		m_sort(arr,temp,left, mid);
 		m_sort(arr,temp,mid+1,right);
-		mergeSort(arr, temp, left, mid, right);
+		mergeSort(arr, temp, left, mid+1, right);
 	}	
 }
 int main()
