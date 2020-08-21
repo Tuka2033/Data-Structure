@@ -25,9 +25,10 @@ void minHeap(int* arr, int i, int N)
 }
 void buildHeap(int* arr, int N)
 {
-	for(int i = N / 2; i >=1; i--)
+	int size = N - 1;
+	for(int i = size / 2; i >=1; i--)
 	{
-		minHeap(arr, i, N);
+		minHeap(arr, i, size);
 	}
 }
 void Display(int arr[], int N)
@@ -42,8 +43,8 @@ void Display(int arr[], int N)
 }
 void heap_sort(int* arr, int N)
 {
-	int size = N;
-	for (int i =N; i >0; i--)
+	int size = N-1;
+	for (int i =N-1; i >0; i--)
 	{
 		swap(arr[1], arr[i]);
 		size = size-1;
@@ -53,8 +54,8 @@ void heap_sort(int* arr, int N)
 void main()
 {
 	int arr[] = {0,20,12,35,15,10,80,30,17,2,1 };
-	buildHeap(arr, 10);
+	buildHeap(arr, 11);
 	Display(arr, 11);
-    heap_sort(arr, 10);
+    heap_sort(arr, 11);
 	Display(arr, 11);
 }

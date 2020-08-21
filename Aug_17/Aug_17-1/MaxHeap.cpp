@@ -42,9 +42,9 @@ void Display(int arr[], int N)
 }
 void heap_sort(int* arr, int N)
 {
-	int size = N-1;
+	int size = N-2;
 	//Build_heap(arr, N+1);
-	for (int i = N; i >0; i--)
+	for (int i = N-1; i >0; i--)
 	{
 		swap(arr[1], arr[i]);
 		size = size-1;
@@ -56,6 +56,6 @@ void main()
 	int arr[] = {0,20,12,35,15,10,80,30,17,2,1 };
 	Build_heap(arr, 11);
 	Display(arr, 11);
-	heap_sort(arr, 10);
+	heap_sort(arr, 11);
 	Display(arr, 11);
 }
