@@ -1,2 +1,6 @@
 ﻿  Source.cpp
+D:\C-DAC Assignment\DS\Aug_21\Aug_21-1\Source.cpp(90,37): warning C4474: 'printf' : too many arguments passed for format string
+D:\C-DAC Assignment\DS\Aug_21\Aug_21-1\Source.cpp(90,37): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+D:\C-DAC Assignment\DS\Aug_21\Aug_21-1\Source.cpp(112,37): warning C4474: 'printf' : too many arguments passed for format string
+D:\C-DAC Assignment\DS\Aug_21\Aug_21-1\Source.cpp(112,37): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
   Aug_21-1.vcxproj -> D:\C-DAC Assignment\DS\Aug_21\Debug\Aug_21-1.exe
