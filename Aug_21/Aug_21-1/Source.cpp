@@ -124,6 +124,11 @@ public:
 	void Display()
 	{
 		cout << "\nFront-->";
+		if (front == -1)
+		{
+			printf("\ndeque is empty..\n");
+			return;
+		}
 		for (int i = front; i <= rear; i++)
 		{
 	    	cout << arr[i] << " ";
